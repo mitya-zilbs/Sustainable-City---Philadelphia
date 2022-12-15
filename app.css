@@ -1,0 +1,261 @@
+body {
+  background-color: #99EDC3;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.container-fluid {
+  background-color: #fff;
+  min-height: 400px;
+}
+
+.btn-default {
+  /* BS4 changed the appearance of btn-default on anchor tags.
+      I liked the old way better... so that's
+      what I am making happen here.  */
+  background-color: #CCC;
+  color: black;
+}
+
+.btn {
+  /*make text wrap nicely in buttons */
+  white-space: normal;
+}
+
+.locked {
+  display: none !important;
+  /*locked content must not be shown to user*/
+}
+
+.unlocked {
+  border-width: initial;
+  /*set border-width to whatever the default is. */
+}
+
+.secured {
+  border-width: initial;
+  /*set border-width to whatever the default is. */
+}
+
+.navbar-custom {
+  background-color: #99EDC3;
+  color: #414042;
+}
+
+.footer-custom {
+  background-color: #99EDC3;
+  color: #414042;
+}
+
+#details-name {
+  text-align: center;
+  background-color: #1dedae;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#myStuff-title {
+  text-align: center;
+  background-color: #1dedae;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#map-title {
+  text-align: center;
+  background-color: #1dedae;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#home-title {
+  text-align: center;
+  background-color: #1dedae;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#about-title {
+  text-align: center;
+  background-color: #1dedae;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#addItem-title {
+  text-align: center;
+  background-color: #1dedae;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#details-description {
+  height: 5em;
+  text-align: center;
+  background-color: #f7f7f7;
+  padding-top: 25px;
+  border-radius: 10px;
+  font-size: large;
+  font-style: italic;
+  border: 2px solid black;
+}
+
+#addItem-background {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: large;
+  font-style: italic;
+  border: 2px solid black;
+}
+
+#details-location-background {
+  text-align: center;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+#details-map {
+  text-align: center;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+#map-mapDiv {
+  text-align: center;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+#table-items {
+  text-align: center;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+#table-myStuff {
+  text-align: center;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: large;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #99EDC3;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block2 {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-success {
+  color: #414042;
+  background-color: #99EDC3
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #414042;
+  background-color: #99EDC3
+}
+
+
+/*about page founders cards css starts*/
+html {
+  box-sizing: border-box;
+
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.columnabout {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 70px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .columnabout {
+    width: 100%;
+    display: block;
+
+  }
+}
+
+.cardabout {
+  box-shadow: 0 8px 10px 0 #00743a;
+}
+
+.containerabout {
+  padding: 0 16px;
+
+}
+
+.containerabout::after,
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+
+}
+
+.titleabout {
+  color: grey;
+
+}
+
+
+/*about page founders cards css ends*/
+
+
+#itemdescription
+
+/*Add item page this enlarges the text box for Item Description*/
+  {
+  height: 200px;
+  font-size: 14pt;
+}

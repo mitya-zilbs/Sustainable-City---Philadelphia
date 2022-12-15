@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>MIS3502 Template V1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 4 References -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- Link to FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Your custom JavaScript -->
+    <script src="js/app.js"></script>
+
+    <!-- Link to image for the favicon -->
+    <link rel="icon" href="images/scplogo2.png">
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+
+    <nav class="navbar navbar-expand-md navbar-custom navbar-light fixed-top">
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+            <img alt="SCP Logo" src="images/scp5.png" style="width:250px;">
+            &nbsp;&nbsp;
+        </a>
+
+        <!-- Toggler Icon for responsiveness -->
+        <button id="toggle-icon" class="navbar-toggler secured" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+            <!--Menu sets on the left -->
+            <ul class="navbar-nav mr-auto"></ul>
+            <!--Menu sets on the right -->
+            <!--Each individual item can be secured by adding the class: secured -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item secured">
+                    <a id="link-home" class="nav-link" href="#"><i class="fa fa-home"></i> Home </a>
+                </li>
+                <li class="nav-item secured">
+                    <a id="link-myStuff" class="nav-link" href="#"><i class="fa fa-user"></i> My Stuff </a>
+                </li>
+                <li class="nav-item secured">
+                    <a id="link-about" class="nav-link" href="#"><i class="fa fa-recycle"></i> About </a>
+                </li>
+                <li class="nav-item secured">
+                    <a id="link-map" class="nav-link" href="#"><i class="fa fa-map"></i> Map </a>
+                </li>
+                <li class="nav-item secured">
+                    <a id="link-addItem" class="nav-link" href="#"><i class="fa fa-plus"></i> Add Stuff </a>
+                </li>
+                <li class="nav-item secured">
+                    <a id="link-logout" class="nav-link" href="#"><i class="fa fa-sign-out"></i>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <br><br><br><br>
+
+    <!--Start container for BS4 (Bootstrap 4) formatting-->
+    <div class="container-fluid">
+
+        <div class="row text-center">
+            <div class="col-md-12">
+                &nbsp;
+                <!-- place holder for additional top row content -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8 content-wrapper " id="div-login" style="display: none;">
+                <form id='form-login'>
+                    <br><br>
+                    <label for="username">User name:</label>
+                    <input type="text" name="username" id="username" class="form-control">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                    <br>
+                    <div class="text-center">
+                        <input type="button" value="Login" name="btnLogin" id="btnLogin" class="btn btn-success"
+                            style="font-size:2em;width:100%;">
+                    </div>
+                    <br>
+                    <div id='login_message' class="">
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-home" style="display: none;">
+                <br>
+                <div>
+                    <center>
+                        <div id="home-title">
+                            <h1>Welcome to Sustainable City - Philadelphia!</h1>
+                        </div>
+                        <br>
+                        <p style="font-size:large ;"><i>
+                                The items listed below are currently available to be picked up!
+                                Please click 'Get Details' to view the pickup location.
+                            </i></p>
+                    </center>
+                    <br>
+                    <table id="table-items" class="table table-bordered">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Item Detail</th>
+                            <th>Location Number</th>
+                            <th>Details</th>
+                        </tr>
+                    </table>
+                </div>
+                <br><br>
+                <div>
+
+                    <input type="button" value="View Location Map" id="btnViewMap" class="block"
+                        style="font-size:2em;width:100%;border-radius:25px;border:2px solid black;">
+                </div>
+                <input type="hidden" id="usertoken" name="usertoken">
+
+                <br>
+                <div>
+                    <table id="table-ad1" class="table table-bordered" style="background-color:#99EDC3">
+                        <tr>
+                            <td>
+                                <center><img alt="ad1"
+                                        src="https://www.phillymag.com/wp-content/uploads/sites/3/2019/04/philadelphia-recycling-how-to.jpg"
+                                        style="width:100%"></center>
+                            </td>
+                            <td>
+                                <br>
+                                <h1>Want To Recycle Better?</h1>
+                                <br>
+                                <p>The city of Philadelphia provides excellent information for recycling, what not to
+                                    recycle, and important recycling reminders.</p>
+                                <button type="button" id="btnLearnMore" class="block2"
+                                    onclick="location.href='https://www.phila.gov/programs/recycling-program/what-to-recycle/';"
+                                    value="Learn More">Learn More</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-myStuff" style="display: none;">
+                <table id="table-mystuff-header" class="table table-bordered">
+                    <br><br><br><br>
+                    <tr>
+                        <td>
+                            <br>
+                            <div id="myStuff-title" style="text-align:center;">
+                                <img alt="userimage" src="images/user.png" style="width:15%;color:white;">
+                                <h1>My Stuff:</h1>
+                            </div>
+                        </td>
+                    </tr>
+                    <td>
+                        <br>
+                        <div>
+                            <button type="button" value="Add Stuff" id="btnAddStuff" class="block"
+                                style="border-radius:25px;border:2px solid black;">Add Stuff</button>
+                        </div>
+                        <br>
+                    </td>
+                </table>
+                <table id="table-myStuff" class="table table-bordered">
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Item Detail</th>
+                        <th>Location Number</th>
+                        <th>Details</th>
+                    </tr>
+                </table>
+                <br>
+                <div id="message-myStuff" class="alert alert-info">
+                    You have no items listed. Please click "Add Stuff" to add an item!
+                </div>
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-about" style="display: none;">
+                <br><br>
+                <div style="text-align:center;">
+                    <h1 id="about-title">Our Story:</h1>
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    <p>Sustainable City - Philadelphia began as a simple desire shared by three MIS Temple students who
+                        wanted to help solve a trash problem they encountered while attending Temple University. After
+                        combining their MIS skills, they assisted in the development of this website to aid the temple
+                        community in creating a cleaner and more environmentally friendly campus. By guiding students to
+                        the appropriate resources, assisting in the reporting of waste problems, and creating a platform
+                        for exchanging usable items instead of purchasing new ones.</p>
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                </div>
+                <br>
+                <div style="text-align:center;">
+                    <h1>Meet Our Founders:</h1>
+                    <div class="rowabout">
+                        <div class="columnabout">
+                            <div class="cardabout">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHv9eeKsRw76Q/profile-displayphoto-shrink_100_100/0/1632714676616?e=1675296000&v=beta&t=Y8TtdW6SAZnWFe71oAhqtJwx6Eq0WrDtjrfQoVR4Oe8"
+                                    alt="Druvakumar" style="width:100%">
+                                <div class="containerabout">
+                                    <h4>Druvakumar Valugubelly</h4>
+                                    <p><button id="buttonabout" class="block">Contact</button></p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="columnabout">
+                            <div class="cardabout">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQEaobQ2Pb0DrQ/profile-displayphoto-shrink_100_100/0/1646069393125?e=1675296000&v=beta&t=sjiE0WWa6fPeoE4onlDwQpHMA9kvqMeSg7_IlV0Ori0"
+                                    alt="Mitchel" style="width:100%">
+                                <div class="containerabout">
+                                    <h4>Mitchel Zilbershteyn</h4>
+                                    <p><button id="buttonabout" class="block">Contact</button></p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="columnabout">
+                            <div class="cardabout">
+                                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQGbW-1XxYmrnw/profile-displayphoto-shrink_100_100/0/1624987154110?e=1675296000&v=beta&t=a8ex8HLO-V86Avc9zbUJTISj9rwyZo23x3PI9Zj8F4k"
+                                    alt="David" style="width:100%">
+                                <div class="containerabout">
+                                    <h4>David Eugene</h4>
+                                    <p><button id="buttonabout" class="block">Contact</button></p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <table id="table-ad3" class="table table-bordered" style="background-color:#99EDC3">
+                        <tr>
+                            <td>
+                                <center><img alt="ad1"
+                                        src="https://www.phillymag.com/wp-content/uploads/sites/3/2019/04/philadelphia-recycling-how-to.jpg"
+                                        style="width:100%"></center>
+                            </td>
+                            <td>
+                                <br>
+                                <h1>Want To Recycle Better?</h1>
+                                <br>
+                                <p>The city of Philadelphia provides excellent information for recycling, what not to
+                                    recycle, and important recycling reminders.</p>
+                                <button type="button" id="btnLearnMore" class="block2"
+                                    onclick="location.href='https://www.phila.gov/programs/recycling-program/what-to-recycle/';"
+                                    value="Learn More">Learn More</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-map" style="display: none;">
+
+                <div>
+                    <br>
+                    <center>
+                        <h1 id="map-title">Location Map</h1>
+                    </center>
+                    <br>
+                    <h5><i>
+                            The highlighted squares below show the location zones, and the pin is the pickup spot for
+                            that location.
+                            Please determine which location works best for you and drop off your item at the pickup
+                            spot.
+                            Press the icon at the top left of the map to see details.
+                        </i></h5>
+                    <br>
+                    <center>
+                        <div id="map-mapDiv">
+                            <iframe
+                                src="https://www.google.com/maps/d/embed?mid=18x1vGEkvSWZpYV0WmhEWe-ew2XGqLPA&hl=en&ehbc=2E312F=en&ehbc=2E312F&z=15"
+                                style="height:700px;width:80%"></iframe>
+                        </div>
+                    </center>
+
+                </div>
+                <br><br>
+                <div>
+                    <table id="table-ad2" class="table table-bordered" style="background-color:#99EDC3">
+                        <tr>
+                            <td>
+                                <br>
+                                <center><img alt="ad2"
+                                        src="https://media4.manhattan-institute.org/sites/cj/files/cleaning-up-philadelphia.jpg"
+                                        style="width:80%"></center>
+                            </td>
+                            <td>
+                                <br>
+                                <h1>Is there a problem?</h1>
+                                <br>
+                                <p>Did you know that in the city of Philadelphia, you can report unlawful dumping,
+                                    graffiti, sanitary code violations, dead animals on the street, and missing garbage
+                                    or recycling collection?</p>
+                                <button type="button" id="btnLearnMore2" class="block2"
+                                    onclick="location.href='https://www.phila.gov/services/trash-recycling-city-upkeep/report-a-problem-with-trash-recycling-or-city-upkeep/';"
+                                    value="Learn More">Learn More</button>
+                                <br>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-detail" style="display: none;">
+                <br>
+                <h1>
+                    <center>
+                        <div id="details-name"></div>
+                        <p>_______________________________________________</p>
+                    </center>
+                </h1>
+                <p>
+                <h3> Description: </h3>
+                <div id="details-description"></div>
+                </p>
+                <center>
+                    <p>
+                    <h1>_______________________________________________</h1>
+                    </p>
+                </center>
+                <br>
+                <h3> Location: </h3>
+                <center>
+                    <div id="details-location-background">
+                        <div id="details-location_id"></div>
+                        <div id="details-location_id2" style="letter-spacing: 0.3em; color: blue;"></div>
+                    </div>
+                </center>
+                <br>
+                <center>
+                    <div id="details-map">
+                        <iframe
+                            src="https://www.mapquestapi.com/staticmap/v5/map?key=d6l0aUe0KPaM8SQ0KFSe4BAulsm66eV0&type=map&size=500,360@2x&locations=1700%20W%20Susquehanna%20Ave,%20Philadelphia,%20PA%2019121|marker-red&boundingBox=39.987168,%20-75.163376,39.983665,%20-75.160168"
+                            style="height:740px;width:80%"></iframe>
+                    </div>
+                </center>
+                <br><br>
+                <div>
+                    <button type="button" value="Return to Splash Page" id="btnReturnSplash" class="block">Return to
+                        Items List</button>
+                </div>
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-addItem" style="display: none;">
+                <br><br>
+                <h1 id="addItem-title">Add Item:</h1>
+                <div id="addItem-background">
+                    <form id="form-additem">
+
+                        <label for="itemname">Item Name:</label>
+                        <input type="text" id="itemname" name="item_name" class="form-control">
+                        <br>
+                        <label for="itemdescription">Item Description:</label>
+                        <input type="text" id="itemdescription" name="item_description" class="form-control"
+                            placeholder="1000 letters max">
+                        <br>
+                        <label for="locationid">Item Location ID:</label>
+                        <input type="number" id="locationid" name="location_id" class="form-control">
+                        <div id="addItem-mapDiv">
+                            <p><i>Need help finding a location ID?</i></p>
+                            <input id="btnViewMap2" value="Location Map!" class="btn btn-info">
+                        </div>
+
+                        <br><br>
+                        <div id='message-addItem' class=""></div>
+                        <div class="text-center">
+                            <input type="button" value="Add Item" id="btnAdditem" class="btn btn-primary"
+                                style="font-size:2em;width:100%;border-radius:25px;border:2px solid black;">
+                            <br><br>
+                            <input type="button" value="Cancel" id="btnCancel" class="btn btn-danger"
+                                style="font-size:2em;width:100%;border-radius:25px;border:2px solid black;">
+                        </div>
+                        <br>
+                    </form>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-8 content-wrapper " id="div-GGG" style="display: none;">
+                <br><br>
+
+                <div>
+                    <button type="button" value="View Stuff" id="btnAddStuff2" class="block">Add Stuff</button>
+                </div>
+
+                <br>
+
+                <center>
+                    <h1>My Items: </h1>
+                </center>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+                <div id="item1">
+                    <br>
+                    <h1>Item Name: Couch</h1>
+                    <center><img alt="sofa2"
+                            src="https://media.wired.com/photos/5f6e51ec1518e2504fb04020/191:100/w_2580,c_limit/Gear-Eliot-sofa-SOURCE-Joybird.jpg"
+                            style="width:20%"></center>
+                    <br>
+                    <h3>Item Details:</h3>
+                    <p>Seller Name: Joe</p>
+                    <p>Seller Email: joe@temple.edu</p>
+                    <p>Description: A couch, also known as a sofa, settee, or chesterfield, is a cushioned item of
+                        furniture for seating multiple people. It is commonly found in the form of a bench, with
+                        upholstered armrests, and often fitted with springs and tailored cushion and pillows.</p>
+                    <input type="button" value="Delete" id="btnDelete" class="btn btn-danger"
+                        style="font-size:2em;width:100%;">
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                </div>
+
+                <div id="item2">
+                    <br>
+                    <h1>Item Name: Chair</h1>
+                    <center><img alt="chair2"
+                            src="https://secure.img1-fg.wfcdn.com/im/19556338/resize-h600-w600%5Ecompr-r85/3444/34441276/Kitchen+%26+Dining+Chairs.jpg"
+                            style="width:20%"></center>
+                    <br>
+                    <h3>Item Details:</h3>
+                    <p>Seller Name: Joe</p>
+                    <p>Seller Email: joe@temple.edu</p>
+                    <p>Description: A chair is a type of seat, typically designed for one person and consisting of one
+                        or more legs, a flat seat and a back-rest. They may be made of wood, metal, or synthetic
+                        materials, and may be padded or upholstered in various colors and fabrics. Chairs vary in
+                        design.</p>
+                    <input type="button" value="Delete" id="btnDelete2" class="btn btn-danger"
+                        style="font-size:2em;width:100%;">
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                </div>
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div>
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- container //-->
+
+    <br>
+    <div class="container-fluid footer-custom ">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                &copy; 2022 Sustainable City - Philadelphia
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                &nbsp;
+                <!-- place holder for additional footer content -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
